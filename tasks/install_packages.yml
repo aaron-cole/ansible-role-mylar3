@@ -1,0 +1,13 @@
+---
+# tasks file for package installation
+
+- name: Install required packages
+  yum:
+    name: "{{ mylar_packages }}"
+    state: present
+
+- name: Python >3.7 installation Required
+  yum:
+    name: "{{ mylar_python_version }}"
+    state: present
+  when: ansible_facts['distribution_major_version'] >= '8'

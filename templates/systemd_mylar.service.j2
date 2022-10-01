@@ -1,0 +1,19 @@
+#
+# Systemd unit file for mylar
+#
+
+[Unit]
+Description=mylar Daemon
+
+[Service]
+Type=forking
+User={{ mylar_user }}
+Group={{ mylar_group }}
+ExecStart=/usr/bin/python{{ python_version }} {{ mylar_install_dir }}/Mylar.py -v --daemon --nolaunch --quiet
+GuessMainPID=no
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+

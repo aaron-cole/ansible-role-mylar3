@@ -1,0 +1,19 @@
+---
+# tasks for fapolicyd configuration
+
+- name: Trust Mylar.py
+  shell: "fapolicyd-cli --file add {{ mylar_install_dir }}/Mylar.py --trust-file mylar"
+  changed_when: false
+  failed_when: false
+  notify: fapolicyd update
+  when: "'fapolicyd' in ansible_facts['packages']"
+
+- name: Trust Pip items
+  shell: "fapolicyd-cli --file add /usr/local/lib64/python{{ python_version }}/site-packages --trust-file mylar"
+  changed_when: false
+  failed_when: false
+  notify: fapolicyd update
+
+#Gotta flush handlers to make sure fapolicyd gets updated
+- name: Flush handlers to make Mylar work with fapolicy
+  meta: flush_handlers

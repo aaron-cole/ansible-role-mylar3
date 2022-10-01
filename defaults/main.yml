@@ -1,0 +1,15 @@
+---
+# defaults file for mylar3
+
+mylar_user: mylar
+#mylar_uid: 
+mylar_group: media
+#mylar_group_gid:
+mylar_install_dir: /opt/Mylar
+mylar_config_dir: /opt/data/mylar
+mylar_git_repo: "https://github.com/mylar3/mylar3"
+mylar_port: 8090
+mylar_python_version: python38
+mylar_packages:
+  - unrar
+  - git

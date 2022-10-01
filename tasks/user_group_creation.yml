@@ -1,0 +1,26 @@
+---
+# user group tasks for mylar
+
+#User Group Creation
+- name: User Group Creation
+  block:
+  - name: Create group for mylar if defined
+    group: 
+      name: "{{ mylar_group }}"
+      gid: "{{ mylar_group_gid | default(omit) }}"
+      state: present
+      system: yes
+    when: mylar_group is defined
+  
+  # Create our user we will use
+  - name: Create mylar user
+    user: 
+      name: "{{ mylar_user }}"
+      state: present
+      shell: /sbin/nologin
+      group: "{{ mylar_group }}"
+      system: yes
+      home: "{{ mylar_install_dir }}"
+      comment: "mylar service account"
+      uid: "{{ mylar_uid | default(omit) }}"
+      create_home: no
