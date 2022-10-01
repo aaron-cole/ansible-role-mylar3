@@ -3,20 +3,18 @@
 
 # Cloning from Source mylar repo and
 # Ensure perms are cool
-- name: Clone from git repo
-  block:
-    - name: Clone git repo
-      git:
-        repo: "{{ mylar_git_repo }}"
-        dest: "{{ mylar_install_dir }}"
-        version: master
-    
-    - name: Update file perms
-      file:
-        path: "{{ mylar_install_dir }}"
-        owner: "{{ mylar_user }}"
-        group: "{{ mylar_group }}"
-        recurse: yes
+- name: Clone git repo
+  git:
+    repo: "{{ mylar_git_repo }}"
+    dest: "{{ mylar_install_dir }}"
+    version: master
+
+- name: Update file perms
+  file:
+    path: "{{ mylar_install_dir }}"
+    owner: "{{ mylar_user }}"
+    group: "{{ mylar_group }}"
+    recurse: yes
 
 #We gots PIP requirements so lets install them
 - name: Install pip requirements

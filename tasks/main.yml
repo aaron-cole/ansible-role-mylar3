@@ -14,19 +14,18 @@
     - name: Remove "python" from mylar_python_version and define new fact
       set_fact:
         test: "{{ mylar_python_version | regex_replace('^python(.*)$', '\\1') }}"
-    
+
     - name: Setting python version with a "." in between
       set_fact:
         python_version: "{{ test | first }}.{{ test | last }}"
       when: test | length == 2
-
 
 - name: User Group Creation tasks
   include_tasks: "user_group_creation.yml"
 
 - name: Repository Setup
   include_tasks: "repo_setups.yml"
-  
+
 - name: Install packages
   include_tasks: "install_packages.yml"
 

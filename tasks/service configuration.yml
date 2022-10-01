@@ -1,18 +1,16 @@
 ---
 # tasks file for mylar configuration
-- name: Configure and start mylar
-  block:
-    - name: Copy Systemd mylar template
-      template:
-        src: systemd_mylar.service.j2
-        dest: /etc/systemd/system/mylar.service
-        owner: root
-        group: root
-        mode: 0644
-        
-    - name: Start mylar service
-      systemd:
-        state: started
-        enabled: yes
-        name: mylar.service
-        daemon_reload: yes
+- name: Copy Systemd mylar template
+  template:
+    src: systemd_mylar.service.j2
+    dest: /etc/systemd/system/mylar.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Start mylar service
+  systemd:
+    state: started
+    enabled: yes
+    name: mylar.service
+    daemon_reload: yes
