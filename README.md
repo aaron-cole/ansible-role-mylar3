@@ -38,7 +38,7 @@ Example Playbook
 
    - hosts: mylar3_servers
       roles:
-        - aaron-cole.mylar3
+        - aaron_cole.ansible_role_mylar3
 
 
 License
