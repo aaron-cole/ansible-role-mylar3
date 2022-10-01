@@ -2,9 +2,9 @@
 # defaults file for mylar3
 
 mylar_user: mylar
-#mylar_uid: 
+# mylar_uid:
 mylar_group: media
-#mylar_group_gid:
+# mylar_group_gid:
 mylar_install_dir: /opt/Mylar
 mylar_config_dir: /opt/data/mylar
 mylar_git_repo: "https://github.com/mylar3/mylar3"

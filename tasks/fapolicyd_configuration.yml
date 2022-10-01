@@ -14,6 +14,6 @@
   failed_when: false
   notify: fapolicyd update
 
-#Gotta flush handlers to make sure fapolicyd gets updated
+# Gotta flush handlers to make sure fapolicyd gets updated
 - name: Flush handlers to make Mylar work with fapolicy
   meta: flush_handlers

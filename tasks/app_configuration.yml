@@ -16,7 +16,7 @@
     group: "{{ mylar_group }}"
     recurse: yes
 
-#We gots PIP requirements so lets install them
+# We gots PIP requirements so lets install them
 - name: Install pip requirements
   pip:
     requirements: "{{ mylar_install_dir }}/requirements.txt"

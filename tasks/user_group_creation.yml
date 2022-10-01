@@ -1,7 +1,7 @@
 ---
 # user group tasks for mylar
 
-#User Group Creation
+# User Group Creation
 - name: Create group for mylar if defined
   group:
     name: "{{ mylar_group }}"

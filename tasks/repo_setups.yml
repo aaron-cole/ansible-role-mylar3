@@ -1,6 +1,6 @@
 ---
 # tasks file for repo configurations
-#EPEL
+# EPEL
 # Add EPEL GPG key
 # Add EPEL repo
 - name: For RHEL Servers
